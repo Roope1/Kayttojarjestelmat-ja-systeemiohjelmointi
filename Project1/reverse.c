@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* For queue data structure*/
-typedef struct queueNode
+/* For stack data structure*/
+typedef struct stackNode
 {
     char *str;
-    struct queueNode *next;
+    struct stackNode *next;
 } NODE;
 
-NODE *enqueue(NODE *head, char *str);
-NODE *dequeue(NODE *head);
+NODE *push(NODE *head, char *str);
+NODE *pop_and_print(NODE *head, FILE *stream);
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     FILE *input_stream;
     FILE *output_stream;
 
-    NODE *queue = NULL;
+    NODE *stack = NULL;
 
     /* Checking amount of arguments and creating stream handles */
     if (argc == 1)
@@ -65,6 +65,17 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
+    /* TODO: Read input into stack */
+    stack = push(stack, "a");
+    stack = push(stack, "b");
+    stack = push(stack, "c");
+
+    /* pop stack and print*/
+    while (stack != NULL)
+    {
+        stack = pop_and_print(stack, output_stream);
+    }
+
     /* Ending procedures */
     fclose(input_stream);
     fclose(output_stream);
@@ -74,8 +85,8 @@ int main(int argc, char *argv[])
     exit(0);
 }
 
-/* Adds a NODE to queue and returns the new first element in LL*/
-NODE *enqueue(NODE *head, char *str)
+/* Adds a NODE to stack and returns the new first element in LL*/
+NODE *push(NODE *head, char *str)
 {
 
     NODE *newnode;
@@ -91,6 +102,13 @@ NODE *enqueue(NODE *head, char *str)
     return head;
 }
 
-NODE *dequeue(NODE *head)
+/* pops the top element and prints it, returns the new top element*/
+NODE *pop_and_print(NODE *head, FILE *stream)
 {
+    NODE *temp = head->next;
+
+    fprintf(stream, "%s\n", head->str);
+
+    free(head);
+    return temp;
 }
