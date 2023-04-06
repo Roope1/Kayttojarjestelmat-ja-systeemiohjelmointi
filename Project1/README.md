@@ -12,7 +12,7 @@ Simple reverse function that takes in an input file and prints it to output file
 ---
 
 ## My Implementation:
-My implementation is reading the input file into a queue data structure thus achieving a LIFO data flow. 
+My implementation is reading the input file into a stack data structure thus achieving a LIFO data flow. The stack is implemented as a linked list where I push each new element to the front of the list, so I can print the output by just printing out the elements of the list in order.
 
 ---
 
