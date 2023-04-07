@@ -11,6 +11,10 @@ typedef struct stackNode
 
 NODE *push(NODE *head, char *str);
 NODE *pop_and_print(NODE *head, FILE *stream);
+void print_stack(NODE *head);
+
+char *line = NULL;
+size_t len = 0;
 
 int main(int argc, char *argv[])
 {
@@ -65,10 +69,18 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    /* TODO: Read input into stack */
-    stack = push(stack, "a");
-    stack = push(stack, "b");
-    stack = push(stack, "c");
+    /* Reading from input line by line */
+
+    while ((getline(&line, &len, input_stream)) != -1)
+    {
+        stack = push(stack, line);
+    }
+
+    // stack = push(stack, "a");
+    // stack = push(stack, "b");
+    // stack = push(stack, "c");
+
+    // print_stack(stack);
 
     /* pop stack and print*/
     while (stack != NULL)
@@ -88,7 +100,8 @@ int main(int argc, char *argv[])
 /* Adds a NODE to stack and returns the new first element in LL*/
 NODE *push(NODE *head, char *str)
 {
-
+    // printf("Got string %s\n", str);
+    char *tempstr;
     NODE *newnode;
     if ((newnode = (NODE *)malloc(sizeof(NODE))) == NULL)
     {
@@ -96,19 +109,35 @@ NODE *push(NODE *head, char *str)
         exit(1);
     }
 
-    newnode->str = str;
+    if ((tempstr = (char *)malloc(sizeof(strlen(str) * sizeof(char)))) == NULL)
+    {
+        fprintf(stderr, "malloc failed");
+        exit(1);
+    }
+    strcpy(tempstr, str);
+    newnode->str = tempstr;
     newnode->next = head;
     head = newnode;
     return head;
 }
 
+void print_stack(NODE *head)
+{
+    NODE *ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%s ", ptr->str);
+        ptr = ptr->next;
+    }
+}
+
 /* pops the top element and prints it, returns the new top element*/
 NODE *pop_and_print(NODE *head, FILE *stream)
 {
-    NODE *temp = head->next;
+    NODE *newhead = head->next;
 
-    fprintf(stream, "%s\n", head->str);
+    fprintf(stream, "%s", head->str);
 
     free(head);
-    return temp;
+    return newhead;
 }
