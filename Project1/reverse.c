@@ -100,9 +100,9 @@ int main(int argc, char *argv[])
 /* Adds a NODE to stack and returns the new first element in LL*/
 NODE *push(NODE *head, char *str)
 {
-    // printf("Got string %s\n", str);
     char *tempstr;
     NODE *newnode;
+
     if ((newnode = (NODE *)malloc(sizeof(NODE))) == NULL)
     {
         fprintf(stderr, "malloc failed");
@@ -114,21 +114,12 @@ NODE *push(NODE *head, char *str)
         fprintf(stderr, "malloc failed");
         exit(1);
     }
+
     strcpy(tempstr, str);
     newnode->str = tempstr;
     newnode->next = head;
     head = newnode;
     return head;
-}
-
-void print_stack(NODE *head)
-{
-    NODE *ptr = head;
-    while (ptr != NULL)
-    {
-        printf("%s ", ptr->str);
-        ptr = ptr->next;
-    }
 }
 
 /* pops the top element and prints it, returns the new top element*/
@@ -137,7 +128,8 @@ NODE *pop_and_print(NODE *head, FILE *stream)
     NODE *newhead = head->next;
 
     fprintf(stream, "%s", head->str);
-
+    free(head->str);
     free(head);
+
     return newhead;
 }
