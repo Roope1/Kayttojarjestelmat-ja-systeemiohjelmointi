@@ -76,12 +76,6 @@ int main(int argc, char *argv[])
         stack = push(stack, line);
     }
 
-    // stack = push(stack, "a");
-    // stack = push(stack, "b");
-    // stack = push(stack, "c");
-
-    // print_stack(stack);
-
     /* pop stack and print*/
     while (stack != NULL)
     {
@@ -109,7 +103,7 @@ NODE *push(NODE *head, char *str)
         exit(1);
     }
 
-    if ((tempstr = (char *)malloc(sizeof(strlen(str) * sizeof(char)))) == NULL)
+    if ((tempstr = (char *)malloc((strlen(str) + 1))) == NULL)
     {
         fprintf(stderr, "malloc failed");
         exit(1);
