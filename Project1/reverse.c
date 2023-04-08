@@ -73,6 +73,10 @@ int main(int argc, char *argv[])
 
     while ((getline(&line, &len, input_stream)) != -1)
     {
+        if (strlen(line) == 1)
+        {
+            break;
+        }
         stack = push(stack, line);
     }
 
@@ -85,8 +89,6 @@ int main(int argc, char *argv[])
     /* Ending procedures */
     fclose(input_stream);
     fclose(output_stream);
-
-    // TODO: free memory and such
 
     exit(0);
 }
