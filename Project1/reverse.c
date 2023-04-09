@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
     /* Ending procedures */
     fclose(input_stream);
     fclose(output_stream);
-
+    free(line);
     exit(0);
 }
 
