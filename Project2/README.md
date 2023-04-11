@@ -27,15 +27,18 @@ or alternatively compile all of the files with
 
 Then refer to the command specific documentation.
 
-* [cat](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-catc)
-* [grep](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-grepc)
-* [zip](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-zipc)
-* [unzip](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-unzipc)
+* [cat](#my-catc)
+* [grep](#my-grepc)
+* [zip](#my-zipc)
+* [unzip](#my-unzipc)
+
+---
 
 ## my-cat.c
 
-Command usage:
->> ./my-cat.out \<filename(s)>
+### Command usage:
+
+``./my-cat.out <filename(s)>``
 
 A simple cat command that prints the contents of any give file into the console.
 
@@ -43,7 +46,26 @@ A simple cat command that prints the contents of any give file into the console.
 
 Above is my-cat command showing its own source code. by running it with ``./my-cat.out my-cat.c``
 
+---
+
 ## my-grep.c
+
+### Command usage:
+``./my-grep.out <pattern> <filename(s)>``
+
+Simplified grep command that takes a pattern and prints all the lines in the input file(s) that contain the pattern. If no input files are specified grep wil read from stdin.
+
+![my-grep working](img/my-grep.png)
+
+Above is my grep command matching the pattern "foo" to the file "testfile.txt" that contains the following:
+
+```
+12345
+abcfoobar
+dog
+cat
+This is quite a long string to proof that the program works on longer strings aswell as short ones. It would be very foolish to submit a program that doesnt work as expected.
+```
 
 ## my-zip.c
 
