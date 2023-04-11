@@ -27,10 +27,10 @@ or alternatively compile all of the files with
 
 Then refer to the command specific documentation.
 
-* [cat](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-cat.c)
-* [grep](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-grep.c)
-* [zip](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-zip.c)
-* [unzip](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-unzip.c)
+* [cat](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-catc)
+* [grep](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-grepc)
+* [zip](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-zipc)
+* [unzip](https://github.com/Roope1/Kayttojarjestelmat-ja-systeemiohjelmointi/blob/main/Project2/README.md#my-unzipc)
 
 ## my-cat.c
 
