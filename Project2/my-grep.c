@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 void read_file(char *filename, char *pattern)
 {
     FILE *fp;
-    char *line;
+    char *line = NULL;
     size_t len = 0;
 
     if (filename != NULL)
@@ -39,7 +39,7 @@ void read_file(char *filename, char *pattern)
         fp = fopen(filename, "r");
         if (fp == NULL)
         {
-            fprintf(stderr, "my-cat: cannot open file\n");
+            fprintf(stderr, "my-grep: cannot open file\n");
             exit(1);
         }
     }
@@ -56,6 +56,7 @@ void read_file(char *filename, char *pattern)
         }
     }
     fclose(fp);
+    free(line);
 }
 
 /* Returns 1 if a match is found, 0 if not */
