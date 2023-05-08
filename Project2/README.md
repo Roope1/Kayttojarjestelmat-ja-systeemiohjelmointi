@@ -29,8 +29,8 @@ Then refer to the command specific documentation.
 
 * [cat](#my-catc)
 * [grep](#my-grepc)
-* [zip](#my-zipc)
-* [unzip](#my-unzipc)
+* [zip](#my-zipc-my-unzipc)
+* [unzip](#my-zipc-my-unzipc)
 
 ---
 
@@ -67,6 +67,14 @@ cat
 This is quite a long string to proof that the program works on longer strings aswell as short ones. It would be very foolish to submit a program that doesnt work as expected.
 ```
 
-## my-zip.c
+## my-zip.c & my-unzip.c
 
-## my-unzip.c
+### Command usages:
+
+`` ./my-zip.out <file1> [file2...]``
+
+`` ./my-unzip.out <file1>`` 
+
+ **Note: For the unzip command to work correctly the given file must be first zipped with the myzip command.**
+
+It is recommended when using the zip command to redirect the output to a file as without redirecting the output will be printed to stdout. And then you wont have a file to unzip.

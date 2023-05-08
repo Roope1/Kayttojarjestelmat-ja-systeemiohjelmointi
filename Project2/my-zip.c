@@ -44,6 +44,11 @@ void readfile(char *filename)
         {
             if (buffer[i] == '\n') // end of line continue to next
             {
+                fwrite(&count, sizeof(int), 1, stdout);
+                fwrite(&current_char, sizeof(char), 1, stdout);
+                current_char = buffer[i];
+                count = 1;
+                fwrite("\n", sizeof(char), 1, fp);
                 continue;
             }
 
@@ -69,6 +74,7 @@ void readfile(char *filename)
                 current_char = buffer[i];
                 count = 1;
             }
+
             else
             {
                 count++;
